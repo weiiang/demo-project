@@ -1,0 +1,6 @@
+rabbitmq:
+  host: 127.0.0.1
+  username: leyou
+  password: leyou
+  virtual-host: /leyou
+  port: 5672

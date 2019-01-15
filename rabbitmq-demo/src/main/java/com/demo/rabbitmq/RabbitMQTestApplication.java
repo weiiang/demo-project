@@ -8,4 +8,5 @@ package com.demo.rabbitmq;
  * @Version 1.0.0
  */
 public class RabbitMQTestApplication {
+
 }
