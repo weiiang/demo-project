@@ -3,8 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DeptMapper">
-    <select id="insertDept" resultType="com.demo.mybatis.pojo.Dept">
-      insert into dept(dname,loc)
-      values (#{dname}, #{loc})
+    
+    
+    <resultMap id="deptResultMap" type="com.wq.mybatis.Dept">
+        <result column="flag" property="flag" typeHandler="com.wq.mybatis.CustomBooleanToIntTypeHandler"></result>
+    </resultMap>
+    
+    <select id="insertDept" resultType="com.wq.mybatis.Dept">
+      insert into dept(dname,loc, flag)
+      values (#{dname}, #{loc}, #{flag})
     </select>
 </mapper>

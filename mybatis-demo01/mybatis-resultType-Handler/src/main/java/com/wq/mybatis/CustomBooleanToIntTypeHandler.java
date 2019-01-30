@@ -1,0 +1,64 @@
+package com.wq.mybatis;
+
+import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.TypeHandler;
+
+import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ * 利用的是代理模式
+ * 这些方法都相当于通知
+ * @ClassName CustomBooleanToIntTypeHandler
+ * @Description TODO
+ * @Author wq
+ * @Date 2019/1/30 17:44
+ * @Version 1.0.0
+ */
+public class CustomBooleanToIntTypeHandler implements TypeHandler {
+
+    /**
+     * 生成相关的SQL语句的时候调用的
+     * @param preparedStatement
+     * @param i 站位付位置
+     * @param o
+     * @param jdbcType
+     * @throws SQLException
+     */
+    public void setParameter(PreparedStatement preparedStatement, int i, Object o, JdbcType jdbcType) throws SQLException {
+        System.out.println("falg:"+o);
+        if (o == null){
+            //dept.flag == null
+            preparedStatement.setInt(i, 0);
+            return;
+        }
+        Boolean flag = (Boolean) o;
+        if (flag){
+            preparedStatement.setInt(i ,10);
+        }else {
+            preparedStatement.setInt(i, 20);
+        }
+
+    }
+
+    /**
+     * 在查询的结束之后将ResultSet数据行转换为实体类类型时:通知typehandler将当前数据行的某个字段转换为指定类型
+     * @param resultSet
+     * @param s
+     * @return
+     * @throws SQLException
+     */
+    public Object getResult(ResultSet resultSet, String s) throws SQLException {
+        return null;
+    }
+
+    public Object getResult(ResultSet resultSet, int i) throws SQLException {
+        return null;
+    }
+
+    public Object getResult(CallableStatement callableStatement, int i) throws SQLException {
+        return null;
+    }
+}
