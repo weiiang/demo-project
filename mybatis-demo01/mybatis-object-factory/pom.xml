@@ -9,8 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+
+
+
     <groupId>com.kkb.mybatis</groupId>
-    <artifactId>mybatis-resultType-Handler</artifactId>
+    <artifactId>mybatis-object-factory</artifactId>
     <build>
         <plugins>
             <plugin>

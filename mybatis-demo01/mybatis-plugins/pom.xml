@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.kkb.mybatis</groupId>
-    <artifactId>mybatis-resultType-Handler</artifactId>
+    <artifactId>mybatis-plugins</artifactId>
     <build>
         <plugins>
             <plugin>

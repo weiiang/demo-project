@@ -1,6 +1,7 @@
-package com.wq.mybatis.test;
+package com.wq.mybatis.pluguns.test;
 
-import com.wq.mybatis.Dept;
+import com.wq.mybatis.plugins.mapper.DeptMapper;
+import com.wq.mybatis.plugins.pojo.Dept;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -14,13 +15,13 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * @ClassName TypeHandlerTest
+ * @ClassName PluginsTest
  * @Description TODO
  * @Author wq
- * @Date 2019/1/30 18:06
+ * @Date 2019/1/31 11:47
  * @Version 1.0.0
  */
-public class TypeHandlerTest {
+public class PluginsTest {
 
     private SqlSession sqlSession = null;
 
@@ -39,21 +40,11 @@ public class TypeHandlerTest {
         }
     }
 
-    @Test
-    public void test1(){
-        Dept dept = new Dept();
-        dept.setDname("部门名称");
-        dept.setFlag(false);
-        dept.setLoc("地址");
-        sqlSession.insert("insertDept", dept);
-        sqlSession.commit();
-    }
-
 
     @Test
     public void test2(){
-
-        List<Dept> list = sqlSession.selectList("findAll");
+        DeptMapper dao = sqlSession.getMapper(DeptMapper.class);
+        List<Dept> list = dao.findAll();
         list.forEach(l -> {
             System.out.println(l.toString());
         });

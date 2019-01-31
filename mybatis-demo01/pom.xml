@@ -10,6 +10,10 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>mybatis-resultType-Handler</module>
+        <module>mybatis-object-factory</module>
+        <module>mybatis-plugins</module>
+        <module>mybatis-dynamic-proxy</module>
+        <module>mybatis-dynamic-proxy02</module>
     </modules>
 
 

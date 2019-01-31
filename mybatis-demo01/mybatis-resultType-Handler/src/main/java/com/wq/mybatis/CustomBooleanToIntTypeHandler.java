@@ -17,24 +17,23 @@ import java.sql.SQLException;
  * @Date 2019/1/30 17:44
  * @Version 1.0.0
  */
-public class CustomBooleanToIntTypeHandler implements TypeHandler {
+public class CustomBooleanToIntTypeHandler implements TypeHandler<Dept> {
 
     /**
      * 生成相关的SQL语句的时候调用的
      * @param preparedStatement
-     * @param i 站位付位置
-     * @param o
+     * @param i 占位符位置
+     * @param dept 部门
      * @param jdbcType
      * @throws SQLException
      */
-    public void setParameter(PreparedStatement preparedStatement, int i, Object o, JdbcType jdbcType) throws SQLException {
-        System.out.println("falg:"+o);
-        if (o == null){
-            //dept.flag == null
+    public void setParameter(PreparedStatement preparedStatement, int i, Dept dept, JdbcType jdbcType) throws SQLException {
+        System.out.println("falg:"+dept.getFlag());
+        if (dept.getFlag() == null){
             preparedStatement.setInt(i, 0);
             return;
         }
-        Boolean flag = (Boolean) o;
+        Boolean flag = (Boolean) dept.getFlag();
         if (flag){
             preparedStatement.setInt(i ,10);
         }else {
@@ -50,15 +49,15 @@ public class CustomBooleanToIntTypeHandler implements TypeHandler {
      * @return
      * @throws SQLException
      */
-    public Object getResult(ResultSet resultSet, String s) throws SQLException {
+    public Dept getResult(ResultSet resultSet, String s) throws SQLException {
         return null;
     }
 
-    public Object getResult(ResultSet resultSet, int i) throws SQLException {
+    public Dept getResult(ResultSet resultSet, int i) throws SQLException {
         return null;
     }
 
-    public Object getResult(CallableStatement callableStatement, int i) throws SQLException {
+    public Dept getResult(CallableStatement callableStatement, int i) throws SQLException {
         return null;
     }
 }

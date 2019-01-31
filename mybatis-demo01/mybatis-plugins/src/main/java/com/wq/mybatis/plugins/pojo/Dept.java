@@ -1,32 +1,24 @@
-package com.wq.mybatis;
+package com.wq.mybatis.plugins.pojo;
 
 /**
  * @ClassName Dept
  * @Description TODO
  * @Author wq
- * @Date 2019/1/30 18:00
+ * @Date 2019/1/31 10:37
  * @Version 1.0.0
  */
 public class Dept {
-    private Integer deptNo;
+    private int deptNo;
     private String dname;
     private String loc;
     private Boolean flag;
     private String country;
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public Integer getDeptNo() {
+    public int getDeptNo() {
         return deptNo;
     }
 
-    public void setDeptNo(Integer deptNo) {
+    public void setDeptNo(int deptNo) {
         this.deptNo = deptNo;
     }
 
@@ -54,14 +46,22 @@ public class Dept {
         this.flag = flag;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     @Override
     public String toString() {
         return "Dept{" +
                 "deptNo=" + deptNo +
                 ", dname='" + dname + '\'' +
                 ", loc='" + loc + '\'' +
-                ", country='" + country + '\'' +
                 ", flag=" + flag +
+                ", country='" + country + '\'' +
                 '}';
     }
 }

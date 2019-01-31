@@ -4,13 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <!--自定义别名-->
     <typeAliases>
-        <package name="com.wq.mybatis"></package>
+        <package name="com.wq.mybatis.plugins.pojo"></package>
     </typeAliases>
-    <!--注册自定义的类型转换器-->
-    <typeHandlers>
-        <typeHandler handler="com.wq.mybatis.CustomBooleanToIntTypeHandler" javaType="Boolean" jdbcType="NUMERIC"/>
-    </typeHandlers>
+
+    <!--插件/拦截器-->
+    <plugins>
+        <plugin interceptor="com.wq.mybatis.plugins.plugin.CustomPlugin"></plugin>
+    </plugins>
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>

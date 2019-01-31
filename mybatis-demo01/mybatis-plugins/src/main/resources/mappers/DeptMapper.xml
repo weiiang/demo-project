@@ -2,12 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="DeptMapper">
-    
-    
-    <resultMap id="deptResultMap" type="com.wq.mybatis.Dept">
-        <result column="flag" property="flag" typeHandler="com.wq.mybatis.CustomBooleanToIntTypeHandler"></result>
-    </resultMap>
+<mapper namespace="com.wq.mybatis.plugins.mapper.DeptMapper">
     
     <insert id="insertDept">
       insert into dept(dname,loc, flag)
