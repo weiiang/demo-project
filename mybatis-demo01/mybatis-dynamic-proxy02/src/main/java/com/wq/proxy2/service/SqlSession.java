@@ -1,6 +1,6 @@
 package com.wq.proxy2.service;
 
-import java.sql.SQLException;
+        import java.sql.SQLException;
 
 public interface SqlSession {
 

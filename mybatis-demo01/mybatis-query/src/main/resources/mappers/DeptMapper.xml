@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wq.mybatis.dao.DeptMapper">
+
+	<resultMap id="defaultMap" type="Dept">
+		<id column="dept_deptno" property="deptNo"></id>
+		<result column="dname" property="dname"></result>
+		<result column="loc" property="loc"></result>
+		<!--collection中的coloum应该是来自一方的主键列名-->
+		<collection property="empList" ofType="Employee" column="dept_deptno">
+			<id column="empno" property="empNo"></id>
+			<result column="ename" property="ename"></result>
+		</collection>
+	</resultMap>
+
+    <select id="findAll" resultMap="defaultMap">
+        SELECT
+			dept.deptno dept_deptno,
+			dname,
+			loc,
+			empno,
+			ename,
+			job,
+			sal
+		FROM
+			dept
+		JOIN 	emp ON dept.deptno = emp.deptno
+		where 	dept.deptno = #{deptno}
+    </select>
+
+
+</mapper>

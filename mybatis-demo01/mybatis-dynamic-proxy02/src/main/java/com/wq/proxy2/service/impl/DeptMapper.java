@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 /**
  * @ClassName DeptMapper
- * @Description TODO
+ * @Description 接口实现类
  * @Author wq
  * @Date 2019/1/31 18:05
  * @Version 1.0.0
@@ -15,6 +15,6 @@ import java.sql.SQLException;
 public class DeptMapper implements SqlSession {
     private PreparedStatement ps;
     public int save(String sql) throws SQLException {
-        return ps.executeUpdate();
+        return ps.executeUpdate(sql);
     }
 }

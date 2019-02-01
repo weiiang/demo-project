@@ -14,6 +14,10 @@
         <module>mybatis-plugins</module>
         <module>mybatis-dynamic-proxy</module>
         <module>mybatis-dynamic-proxy02</module>
+        <module>mybatis-mapper_#and$</module>
+        <module>mybatis-mapper-resultmap</module>
+        <module>mybatis-dynamic-sql</module>
+        <module>mybatis-query</module>
     </modules>
 
 
